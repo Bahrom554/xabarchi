@@ -64,8 +64,23 @@ class CategoryController extends Controller
 
     public function destroy(Request $request , Category $category)
     {
-
         $category->delete();
         return  redirect(route('category.index').'?page='.$request->url)->with('message', 'deleted');
+    }
+
+    public function search(Request $request)
+    {
+        if ($value = $request->get('search')) {
+            $categories = Category::where('name', 'like', '%' . $value . '%')->orWhere('id',$value)->get();
+            return response()->json([
+                'view' => view('admin.category.table', compact('categories'))->render()
+            ]);
+
+        } else {
+            $categories = Category::where('id', '<', -1)->get();
+            return response()->json([
+                'view' => view('admin.category.table', compact('categories'))->render()
+            ]);
+        }
     }
 }

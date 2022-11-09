@@ -12,11 +12,11 @@
             <table id="example" class="table table-striped table-bordered" style="width: 100%; table-layout: fixed;">
                 <thead>
                     <tr>
-                        <th>NO</th>
+                        <th>No</th>
                         <th>Title</th>
                         <th class=" d-none d-md-table-cell">Subtitle</th>
-                        <th class=" d-none d-lg-table-cell">Published_at</th>
-                        <th class=" d-none d-md-table-cell">status</th>
+                        <th class=" d-none d-lg-table-cell">Published At</th>
+                        <th class=" d-none d-md-table-cell">Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -50,11 +50,11 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>NO</th>
+                        <th>No</th>
                         <th>Title</th>
                         <th class=" d-none d-md-table-cell">Subtitle</th>
-                        <th class=" d-none d-lg-table-cell">Published_at</th>
-                        <th class=" d-none d-md-table-cell">status</th>
+                        <th class=" d-none d-lg-table-cell">Published At</th>
+                        <th class=" d-none d-md-table-cell">Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

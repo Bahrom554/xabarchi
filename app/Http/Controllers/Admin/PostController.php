@@ -129,4 +129,23 @@ class PostController extends Controller
         $post->update($request->only('status'));
         return redirect(route('post.index'))->with('message', 'success');
     }
+
+    public function search(Request $request)
+    {
+        if ($value = $request->get('search')) {
+            $posts = Post::where('title', 'like', '%' . $value . '%')
+                         ->orWhere('subtitle', 'like', '%' . $value . '%')
+                         ->orWhere('id',$value)
+                           ->get();
+            return response()->json([
+                'view' => view('admin.post.table', compact('posts'))->render()
+            ]);
+
+        } else {
+            $posts = Post::where('id', '<', -1)->get();
+            return response()->json([
+                'view' => view('admin.post.table', compact('posts'))->render()
+            ]);
+        }
+    }
 }

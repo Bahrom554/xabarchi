@@ -8,7 +8,7 @@
             <div class="row no-gutters">
                 <div class="col-md-8 ">
                     <div class="card__post-carousel">
-                        @for($i=0; $i<5; $i++) @if(!$mains[$i]) @break @endif <div class="item">
+                        @for($i=0; $i<5; $i++) @if(!$mains->count() || !$mains[$i]) @break @endif <div class="item">
                             <!-- Post Article -->
                             <div class="card__post">
                                 <div class="card__post__body">
@@ -43,14 +43,12 @@
                                 </div>
                             </div>
                     </div>
-
-                    @endfor
-
-                </div>
+                        @endfor
+                    </div>
             </div>
             <div class="col-md-4">
                 <div class="popular__news-right">
-                    @for($i=5; $i<7; $i++) @if(!$mains[$i]) @break @endif <!-- Post Article -->
+                    @for($i=5; $i<7; $i++) @if(!$mains->count() || !$mains[$i]) @break @endif <!-- Post Article -->
                         <div class="card__post ">
                             <div class="card__post__body card__post__transition">
                                 <a href="{{route('upost.show',$mains[$i]->id)}}">
@@ -151,7 +149,7 @@
                         <h4 class="border_section">recent post</h4>
                     </div>
                     <div class="row">
-                        @for($i=0; $i<2; $i++) @if(!$recents[$i]) @break @endif <div class="col-sm-12 col-md-6 mb-4">
+                        @for($i=0; $i<2; $i++) @if(!$recents->count() || !$recents[$i]) @break @endif <div class="col-sm-12 col-md-6 mb-4">
                             <!-- Post Article -->
                             <div class="card__post ">
                                 <div class="card__post__body card__post__transition">
@@ -191,7 +189,7 @@
                     @endfor
                 </div>
                 <div class="row ">
-                    @for($i=2; $i<6; $i++) @if(!$recents[$i]) @break @endif <div class="col-sm-12 col-md-6">
+                    @for($i=2; $i<6; $i++) @if(!$recents->count() || !$recents[$i]) @break @endif <div class="col-sm-12 col-md-6">
                         <div class="wrapp__list__article-responsive">
                             <div class="mb-3">
                                 <!-- Post Article -->

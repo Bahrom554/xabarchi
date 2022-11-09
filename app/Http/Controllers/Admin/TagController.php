@@ -95,4 +95,20 @@ class TagController extends Controller
         $tag->delete();
         return  redirect(route('tag.index').'?page='.$request->url)->with('message', 'deleted');
     }
+
+    public function search(Request $request)
+    {
+        if ($value = $request->get('search')) {
+            $tags = Tag::where('name', 'like', '%' . $value . '%')->orWhere('id',$value)->get();
+            return response()->json([
+                'view' => view('admin.tag.table', compact('tags'))->render()
+            ]);
+
+        } else {
+            $tags = Tag::where('id', '<', -1)->get();
+            return response()->json([
+                'view' => view('admin.tag.table', compact('tags'))->render()
+            ]);
+        }
+    }
 }
