@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('user.layouts.app',function ($view){
-            $view->with('categories',Category::where('parent_id',null)->with('subcategories')->take(6)->get());
+            $view->with('categories',Category::where('parent_id',null)->with('subcategories')->take(8)->get());
         });
         view()->composer('user.partial.tags',function ($view){
             $view->with('tags', DB::table('tags')

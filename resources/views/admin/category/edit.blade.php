@@ -14,7 +14,7 @@
                 <div class="mb-3">
                     <label class="form-label" style="font-size:22px;">Parent Category</label>
                     <select name="parent_id" class="single-select" id="category">
-                        <option></option>
+                        <option value="">No Parent</option>
                         @foreach($categories as $pcategory)
                         <option value="{{$pcategory->id}}" @if($category->parent_id==$pcategory->id) selected
                             @endif>{{$pcategory->name}}</option>
