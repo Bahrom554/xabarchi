@@ -1,0 +1,11 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PhpClassImplementsSolelyTraversableInspection" enabled="true" level="TYPO" enabled_by_default="true" editorAttributes="TYPO" />
+    <inspection_tool class="PhpCurlyBraceAccessSyntaxUsageInspection" enabled="true" level="TYPO" enabled_by_default="true" editorAttributes="TYPO" />
+    <inspection_tool class="PhpDeprecatedAssertDeclarationInspection" enabled="true" level="TYPO" enabled_by_default="true" editorAttributes="TYPO">
+      <option name="PHP80_DEPRECATION_SEVERITY" value="TYPO" />
+    </inspection_tool>
+    <inspection_tool class="PhpHierarchyChecksInspection" enabled="true" level="TYPO" enabled_by_default="true" editorAttributes="TYPO" />
+  </profile>
+</component>
