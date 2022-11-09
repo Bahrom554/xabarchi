@@ -22,15 +22,8 @@ class TagController extends Controller
     {
 
         $query = QueryBuilder::for(Tag::class);
-        if (!empty($request->get('search'))) {
-            $query->where('name', 'like', '%' . $request->get('search') . '%')
-                ->orWhere('slug', 'like', '%' . $request->get('search') . '%');
-        }
-        $query->allowedAppends(!empty($request->append) ? explode(',', $request->get('append')) : []);
-        $query->allowedIncludes(!empty($request->include) ? explode(',', $request->get('include')) : []);
         $query->orderBy('id', 'DESC');
         $tags = $query->paginate(30);
-
         return view('admin.tag.index', compact('tags'));
     }
 

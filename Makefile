@@ -10,9 +10,12 @@ docker-build:
 test:
 	docker-compose exec php-cli vendor/bin/phpunit
 
-perm:
-	sudo chgrp -R www-data storage bootstrap/cache
-	sudo chmod -R ug+rwx storage bootstrap/cache
+clear:
+	docker-compose exec php-cli php artisan config:clear
 
 migrate:
 	docker-compose exec php-cli php artisan migrate
+
+perm:
+	sudo chgrp -R www-data storage bootstrap/cache
+	sudo chmod -R ug+rwx storage bootstrap/cache

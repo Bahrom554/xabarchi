@@ -31,10 +31,6 @@ class PostController extends Controller
     {
 
         $query = QueryBuilder::for(Post::class);
-        if (!empty($request->get('search'))) {
-            $query->where('title', 'like', '%' . $request->get('search') . '%')
-                ->orWhere('subtitle', 'like', '%' . $request->get('search') . '%');
-        }
         $query->allowedSorts($request->sort);
         $query->latestFirst();
         $posts = $query->paginate($request->per_page);

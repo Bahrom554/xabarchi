@@ -29,6 +29,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('message', 'MessageController@index')->name('message.index');
         Route::get('message/{message}', 'MessageController@show')->name('message.show');
         Route::delete('message/{message}', 'MessageController@destroy')->name('message.destroy');
+        Route::get('post/search','PostController@search')->name('post.search');
+        Route::get('post/search','PostController@search')->name('post.search');
+        Route::get('post/search','PostController@search')->name('post.search');
+
         Route::resource('user','UserController');
     });
 });
@@ -39,7 +43,7 @@ Route::group(['namespace' => 'User'], function () {
     Route::post('post/{post}/comments', 'CommentController@store')->name('post.comment');
     Route::get('/', 'PostController@index')->name('upost.index');
     Route::get('post/{post}', 'PostController@show')->name('upost.show');
-    //        Route::get('post/{slug}', 'Api\v1\PostController@slug')->where('slug', '[A-aZ-z0-9-]+');
+    //        Route::get('post/{slug}', 'PostController@slug')->where('slug', '[A-aZ-z0-9-]+');
     Route::get('search', 'PostController@search')->name('search');
     Route::get('post/category/{category}', 'PostController@category')->name('post.category');
     Route::get('post/tag/{tag}', 'PostController@tag')->name('post.tag');
