@@ -19,7 +19,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
                                 {{$category->name}} </a>
-                            <ul class="dropdown-menu animate fade-up" style="height: 200px; overflow: scroll">
+                            <ul class="dropdown-menu animate fade-up" style="max-height: 200px; overflow: scroll">
                                 @foreach($category->subcategories as $subcategory)
                                 <li><a class="dropdown-item"
                                         href="{{route('post.category',$subcategory->id)}}">{{$subcategory->name}} </a>
