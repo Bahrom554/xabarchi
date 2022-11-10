@@ -14,7 +14,7 @@
         <!--start sidebar -->
         @include('admin.layouts.sidebar')
         <!--end sidebar -->
-        <main class="page-content">
+        <main class="page-content" id="table">
             @yield('content')
         </main>
     </div>

@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-8">
                 <aside class="wrapper__list__article ">
-                    <h4 class="border_section">Kun Yangiliklari</h4>
+                    <h4 class="border_section">@if( $tag ?? '' ){{ $tag->name}}@else Kun Yangiliklari @endif</h4>
 
                     <div class="row">
                         @foreach($posts as $post)

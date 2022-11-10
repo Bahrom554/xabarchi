@@ -6,7 +6,7 @@
 
         <form class="searchbar">
             <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><i class="bi bi-search"></i></div>
-            <input class="form-control" type="text" placeholder="Type here to search">
+            <input class="form-control " id="search"  type="search" placeholder="Search" aria-label="Search">
             <div class="position-absolute top-50 translate-middle-y search-close-icon"><i class="bi bi-x-lg"></i></div>
         </form>
         <div class="top-navbar-right ms-auto">

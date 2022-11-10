@@ -1,8 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-
-
-<div class=" mt-2">
+<div  class=" mt-2">
     <div class="card ">
         @include('admin.layouts.message')
         <div class="d-flex align-items-center justify-content-between px-3">
@@ -10,7 +8,7 @@
             <a type="button" href="{{route('category.create')}}" class="btn btn-primary px-5 ">Create</a>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive" id="for_search">
                 <table id="example" class="table table-striped table-bordered" style="width:100%; ">
                     <thead>
                         <tr>
@@ -65,6 +63,7 @@
 </div>
 @endsection
 @section('jscontent')
+
 <script>
     $('#example').dataTable({
         "columnDefs": [{
@@ -91,8 +90,10 @@
         ],
         "paging": false,
         "order": [0, 'desc'],
+        "info":false
 
     });
+
 
 </script>
 @endsection

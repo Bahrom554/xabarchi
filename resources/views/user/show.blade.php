@@ -43,7 +43,6 @@
                             <li class="list-inline-item">
                                 <span class="text-dark text-capitalize ml-1">
                                     {{ Carbon\Carbon::parse( $post->updated_at)->toFormattedDateString()}}
-
                                 </span>
                             </li>
                             <li class="list-inline-item">
@@ -53,13 +52,10 @@
                                 <a href="#">
                                     {{$post->category->name}}
                                 </a>
-
-
                             </li>
                         </ul>
                     </div>
-
-                    <div class="wrap__article-detail-image mt-4">
+                   <div class="wrap__article-detail-image mt-4">
                         <figure>
                             <img src="{{asset('storage/static'.$post->file->path.'_800x500.'.$post->file->ext)}}" alt=""
                                 class="img-fluid">
@@ -73,9 +69,7 @@
                                     views
                                 </span>
                             </div>
-
-
-                            <ul class="list-inline">
+                             <ul class="list-inline">
                                 <span class="share">share on:</span>
                                 <li class="list-inline-item">
                                     <a class="btn btn-social-o facebook" href="#">
@@ -102,7 +96,6 @@
                                         <span>telegram</span>
                                     </a>
                                 </li>
-
                                 <li class="list-inline-item">
                                     <a class="btn btn-linkedin-o linkedin" href="#">
                                         <i class="fa fa-linkedin"></i>
@@ -111,7 +104,9 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="bodyMsg">
                         {!! $post->body !!}
+                        </div>
                     </div>
 
 

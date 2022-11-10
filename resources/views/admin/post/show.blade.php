@@ -57,7 +57,6 @@
                 </div>
             </div>
 
-
         </div>
         <!-- end content article detail -->
 

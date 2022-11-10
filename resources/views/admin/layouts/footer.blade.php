@@ -30,6 +30,9 @@
     new PerfectScrollbar(".chat-talk")
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
 
 
 @yield('jscontent')

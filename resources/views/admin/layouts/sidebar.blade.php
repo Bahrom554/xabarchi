@@ -56,13 +56,6 @@
             </ul>
         </li>
         <li>
-            <a href="#">
-                <div class="parent-icon"><i class="bi bi-person-lines-fill"></i>
-                </div>
-                <div class="menu-title">User Profile</div>
-            </a>
-        </li>
-        <li>
             <a href="{{route('message.index')}}">
                 <div class="parent-icon"><i class="bi bi-chat-left-text"></i>
                 </div>

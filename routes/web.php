@@ -30,31 +30,21 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('message/{message}', 'MessageController@show')->name('message.show');
         Route::delete('message/{message}', 'MessageController@destroy')->name('message.destroy');
         Route::get('post/search','PostController@search')->name('post.search');
-        Route::get('post/search','PostController@search')->name('post.search');
-        Route::get('post/search','PostController@search')->name('post.search');
-
-        Route::resource('user','UserController');
+        Route::get('category/search','CategoryController@search')->name('category.search');
+        Route::get('tag/search','TagController@search')->name('tag.search');
+        // Route::resource('user','UserController');
     });
 });
-
-
 Route::post('message', 'Admin\MessageController@store')->name('message.store');
 Route::group(['namespace' => 'User'], function () {
     Route::post('post/{post}/comments', 'CommentController@store')->name('post.comment');
     Route::get('/', 'PostController@index')->name('upost.index');
     Route::get('post/{post}', 'PostController@show')->name('upost.show');
-    //        Route::get('post/{slug}', 'PostController@slug')->where('slug', '[A-aZ-z0-9-]+');
     Route::get('search', 'PostController@search')->name('search');
     Route::get('post/category/{category}', 'PostController@category')->name('post.category');
     Route::get('post/tag/{tag}', 'PostController@tag')->name('post.tag');
     Route::get('today', 'PostController@today')->name('today');
-
-    Route::get('about', function () {
-        return view('user.about');
-    })->name('about');
-    Route::get('contact', function () {
-        return view('user.contact');
-    })->name('contact');
+    Route::get('about', function () {return view('user.about');})->name('about');
+    Route::get('contact', function () {return view('user.contact');})->name('contact');
 });
-
 Auth::routes();
