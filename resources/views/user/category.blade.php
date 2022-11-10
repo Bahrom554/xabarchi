@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-8">
                 <aside class="wrapper__list__article ">
-                    <h4 class="border_section">{{$category->name}}</h4>
+                    <h4 class="border_section">{{$category->name}} </h4>
 
                     <div class="row">
                         @foreach($posts as $post)
@@ -82,34 +82,20 @@
 
             <div class="clearfix"></div>
         </div>
-        <!-- Pagination -->
-{{--        <div class="pagination-area">--}}
-{{--            <div class="pagination wow fadeIn animated" data-wow-duration="2s" data-wow-delay="0.5s"--}}
-{{--                style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">--}}
-{{--                <a href="#">--}}
-{{--                    «--}}
-{{--                </a>--}}
-{{--                <a href="#">--}}
-{{--                    1--}}
-{{--                </a>--}}
-{{--                <a class="active" href="#">--}}
-{{--                    2--}}
-{{--                </a>--}}
-{{--                <a href="#">--}}
-{{--                    3--}}
-{{--                </a>--}}
-{{--                <a href="#">--}}
-{{--                    4--}}
-{{--                </a>--}}
-{{--                <a href="#">--}}
-{{--                    5--}}
-{{--                </a>--}}
 
-{{--                <a href="#">--}}
-{{--                    »--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        <!-- Pagination -->
+        @if( $posts->lastPage()>1)
+        <div class="row">
+        <div class="pagination-area col-md-8">
+            <div class="pagination wow fadeIn animated" data-wow-duration="2s" data-wow-delay="0.5s"
+                style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                <a href="{{ $posts->previousPageUrl() }}">«</a>
+                <a href="{{url()->current()}}?page={{$posts->currentPage()}}" class="active " style="margin: 0 20px;">{{$posts->currentPage()}}</a>
+                <a href="{{ $posts->nextPageUrl() }}">»</a>
+            </div>
+        </div>
+    </div>
+        @endif
     </div>
 </section>
 @endsection

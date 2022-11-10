@@ -71,33 +71,20 @@
                     </div>
                 </div>
                 @endforeach
-
-
-
-                <div class="mt-4">
-                    <!-- pagination -->
-                    <!-- Pagination -->
-                    {{--                        <div class="pagination-area">--}}
-                    {{--                            <div class="pagination wow fadeIn animated" data-wow-duration="2s" data-wow-delay="0.5s"--}}
-                    {{--                                 style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">--}}
-
-                    {{--                                    <a href="@if(!$page==1) {{route('$search')}}?'page={{$page-1}}
-                    @else # @endif">--}}
-                    {{--                                        «--}}
-                    {{--                                    </a>--}}
-                    {{--                                @for($i=1; $i<$count/8; $i++)--}}
-                    {{--                                <a href="{{route('$search')}}?'page={{$i}}'">--}}
-
-                    {{--                                </a>--}}
-                    {{--                                @endfor--}}
-                    {{--                                <a href="@if(!$page==$count/8) {{route('$search')}}?'page={{$count/8+1}}
-                    @else # @endif">--}}
-                    {{--                                    »--}}
-                    {{--                                </a>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    <!-- End pagination -->
+             <div class="mt-4">
+                @if( $posts->lastPage()>1)
+                <div class="row">
+                <div class="pagination-area col-md-8 mx-auto">
+                    <div class="pagination wow fadeIn animated" data-wow-duration="2s" data-wow-delay="0.5s"
+                        style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                        <a href="{{ $posts->previousPageUrl() }}">«</a>
+                        <a href="{{url()->current()}}?page={{$posts->currentPage()}}" class="active " style="margin: 0 20px;">{{$posts->currentPage()}}</a>
+                        <a href="{{ $posts->nextPageUrl() }}">»</a>
+                    </div>
                 </div>
+            </div>
+                @endif   
+              
             </div>
         </div>
 </section>

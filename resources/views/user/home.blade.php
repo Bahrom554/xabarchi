@@ -8,7 +8,9 @@
             <div class="row no-gutters">
                 <div class="col-md-8 ">
                     <div class="card__post-carousel">
-                        @for($i=0; $i<5; $i++) @if(!$mains->count() || !$mains[$i]) @break @endif <div class="item">
+                        @if($mains->count())
+                        @for($i=0; $i<$mains->count()-2; $i++)
+                            <div class="item">
                             <!-- Post Article -->
                             <div class="card__post">
                                 <div class="card__post__body">
@@ -44,11 +46,13 @@
                             </div>
                     </div>
                         @endfor
+                        @endif
                     </div>
             </div>
             <div class="col-md-4">
                 <div class="popular__news-right">
-                    @for($i=5; $i<7; $i++) @if(!$mains->count() || !$mains[$i]) @break @endif <!-- Post Article -->
+                    @if($mains->count()>2)
+                    @for($i=$mains->count()-2; $i<$mains->count(); $i++)  <!-- Post Article -->
                         <div class="card__post ">
                             <div class="card__post__body card__post__transition">
                                 <a href="{{route('upost.show',$mains[$i]->id)}}">
@@ -82,6 +86,7 @@
 
                         </div>
                         @endfor
+                        @endif
                 </div>
             </div>
         </div>
@@ -149,7 +154,8 @@
                         <h4 class="border_section">recent post</h4>
                     </div>
                     <div class="row">
-                        @for($i=0; $i<2; $i++) @if(!$recents->count() || !$recents[$i]) @break @endif <div class="col-sm-12 col-md-6 mb-4">
+{{--                        @if($recents->count())--}}
+                        @for($i=0; $i<$recents->count()-4; $i++)<div class="col-sm-12 col-md-6 mb-4">
                             <!-- Post Article -->
                             <div class="card__post ">
                                 <div class="card__post__body card__post__transition">
@@ -187,9 +193,11 @@
                             </div>
                     </div>
                     @endfor
+{{--                        @endif--}}
                 </div>
                 <div class="row ">
-                    @for($i=2; $i<6; $i++) @if(!$recents->count() || !$recents[$i]) @break @endif <div class="col-sm-12 col-md-6">
+                    @if($recents->count()>4)
+                    @for($i=$recents->count()-4; $i<$recents->count(); $i++)  <div class="col-sm-12 col-md-6">
                         <div class="wrapp__list__article-responsive">
                             <div class="mb-3">
                                 <!-- Post Article -->
@@ -231,7 +239,8 @@
                             </div>
                         </div>
                 </div>
-                @endfor
+                    @endfor
+                        @endif
             </div>
         </div>
         <div class="col-md-12 col-lg-4">

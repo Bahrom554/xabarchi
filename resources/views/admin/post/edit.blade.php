@@ -31,7 +31,13 @@
                 <div class="mb-2">
                     <label class="form-label" style="font-size:22px;">Types</label>
                     <select class="single-select" name="type" required>
-                        <option value="1">navbar</option>
+                        <option value="1" @if($post->type==1) selected @endif>maincarusel</option>
+                        <option value="2" @if($post->type==2) selected @endif>listCarusel</option>
+                        <option value="3" @if($post->type==3) selected @endif>recent</option>
+                        <option value="4" @if($post->type==4) selected @endif>popular</option>
+                        <option value="5" @if($post->type==5) selected @endif>texnologies</option>
+                        <option value="6" @if($post->type==6) selected @endif>lifestyle</option>
+                        <option value="7" @if($post->type==7) selected @endif>footer</option>
                     </select>
                 </div>
                 <div class="mb-2">

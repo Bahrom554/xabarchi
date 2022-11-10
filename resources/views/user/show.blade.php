@@ -203,18 +203,22 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="single_navigation-prev text-truncate">
+                            @if($posts->count())
                             <a  href="{{route('upost.show',$posts[0]->id)}}">
                                 <span>previous post</span>
                                 {{$posts[0]->title}}
+                                @endif
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="single_navigation-next text-left text-md-right text-truncate">
-                            <a href="{{route('upost.show',$posts[1]->id)}}">
+                            @if($posts->count()>1)
+                            <a href="{{route('upost.show',$posts[$posts->count()-1]->id)}}">
                                 <span>next post</span>
-                                {{$posts[1]->title}}
+                                {{$posts[$posts->count()-1]->title}}
                             </a>
+                            @endif
 
                         </div>
                     </div>
