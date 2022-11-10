@@ -14,7 +14,7 @@ class CommentController extends Controller
 
         $rules = [
             'author_name'   => 'required',
-            'author_email'  => 'required|email',
+            'author_email'  => 'nullable|email',
             'body'          => 'required'
         ];
         $message = [

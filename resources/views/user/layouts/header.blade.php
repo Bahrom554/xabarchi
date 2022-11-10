@@ -107,7 +107,6 @@
                             </li>
                             @endforeach
                         </ul>
-
                     </nav>
                 </div>
                 <div class="modal-footer">

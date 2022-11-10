@@ -64,7 +64,7 @@ class PostController extends Controller
         return view('user.tag', compact('posts', 'tag'));
     }
     public function today(){
-        $posts = Post::where('status','1')->whereNotNull('file_id')->where('created_at',Carbon::now())->with('user','file')->latestFirst()->paginate(8);
+        $posts = Post::where('status','1')->whereNotNull('file_id')->where('created_at', '>=', Carbon::today())->with('user','file')->latestFirst()->paginate(8);
         return view('user.tag', compact('posts'));
     }
     //    public function slug($slug)

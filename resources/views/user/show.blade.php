@@ -185,7 +185,7 @@
                             </p>
                             <p class="comment-form-email">
                                 <label for="email">Email <span class="required">*</span></label>
-                                <input type="email" id="email" name="author_email" required="required">
+                                <input type="email" id="email" name="author_email" >
                             </p>
                             <p class="form-submit">
                                 <input type="submit" class="submit" value="Post Comment">

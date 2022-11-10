@@ -33,7 +33,7 @@ class PostController extends Controller
         $query = QueryBuilder::for(Post::class);
         $query->allowedSorts($request->sort);
         $query->latestFirst();
-        $posts = $query->paginate($request->per_page);
+        $posts = $query->paginate(30);
         return view('admin.post.index', compact('posts'));
     }
 
