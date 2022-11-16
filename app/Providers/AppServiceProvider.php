@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('user.partial.sidebar',function ($view){
-            $view->with('latest',Post::where('status','1')->orderBy('view_count', 'desc')->take(4)->get());
+            $view->with('latest',Post::where('status','1')->whereNotNull('file_id')->orderBy('view_count', 'desc')->take(4)->get());
         });
 
 

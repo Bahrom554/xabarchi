@@ -16,7 +16,7 @@
                 <input type="text" class="form-control" name="title" value="{{old('title')}}" required>
             </div>
             <div class="col-md-6">
-                <input type="file" name="file" onchange="preview()">
+                <input type="file" name="file" onchange="preview()" >
                 <img id="frame" src="" style="max-height:300px; max-width: 100%;" />
             </div>
             <div class="col-md-6">

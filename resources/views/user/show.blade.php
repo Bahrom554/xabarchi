@@ -56,10 +56,12 @@
                         </ul>
                     </div>
                    <div class="wrap__article-detail-image mt-4">
-                        <figure>
-                            <img src="{{asset('storage/static'.$post->file->path.'_800x500.'.$post->file->ext)}}" alt=""
-                                class="img-fluid">
-                        </figure>
+                       @if($post->file)
+                           <figure>
+                               <img src="{{asset('storage/static'.$post->file->path.'_800x500.'.$post->file->ext)}}" alt=""
+                                    class="img-fluid">
+                           </figure>
+                       @endif
                     </div>
                     <div class="wrap__article-detail-content">
                         <div class="total-views">

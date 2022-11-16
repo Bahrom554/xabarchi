@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" name="title" value="{{old('title',$post->title)}}" required>
             </div>
             <div class="col-md-6">
-                <input type="file" name="file" onchange="preview()">
+                <input type="file" name="file" onchange="preview()" >
                 <img id="frame"
                     src="@if($post->file){{asset('storage/static'.$post->file->path.'.'.$post->file->ext)}}@endif"
                     style="max-height:300px; max-width: 100%;" />

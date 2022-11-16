@@ -14,10 +14,12 @@
                             <!-- Post Article -->
                             <div class="card__post">
                                 <div class="card__post__body">
-                                    <a href="{{route('upost.show',$mains[$i]->id)}}">
-                                        <img src="{{asset('storage/static'.$mains[$i]->file->path.'_800x600.'.$mains[$i]->file->ext)}}"
-                                            class="img-fluid" alt="">
-                                    </a>
+                                   @if($mains[$i]->file)
+                                        <a href="{{route('upost.show',$mains[$i]->id)}}">
+                                            <img src="{{asset('storage/static'.$mains[$i]->file->path.'_800x600.'.$mains[$i]->file->ext)}}"
+                                                 class="img-fluid" alt="">
+                                        </a>
+                                    @endif
                                     <div class="card__post__content bg__post-cover" style="padding-bottom: 20px" >
                                         <div class="card__post__category">
                                             {{$mains[$i]->category->name}}
@@ -55,10 +57,12 @@
                     @for($i=$mains->count()-2; $i<$mains->count(); $i++)  <!-- Post Article -->
                         <div class="card__post ">
                             <div class="card__post__body card__post__transition">
-                                <a href="{{route('upost.show',$mains[$i]->id)}}">
-                                    <img src="{{asset('storage/static'.$mains[$i]->file->path.'_600x400.'.$mains[$i]->file->ext)}}"
-                                        class="img-fluid" alt="">
-                                </a>
+                               @if($mains[$i]->file)
+                                    <a href="{{route('upost.show',$mains[$i]->id)}}">
+                                        <img src="{{asset('storage/static'.$mains[$i]->file->path.'_600x400.'.$mains[$i]->file->ext)}}"
+                                             class="img-fluid" alt="">
+                                    </a>
+                                @endif
                                 <div class="card__post__content bg__post-cover" style="padding-bottom: 10px">
                                     <div class="card__post__category">
                                         {{$mains[$i]->category->name}}
@@ -104,10 +108,12 @@
                             <!-- Post Article -->
                             <div class="article__entry">
                                 <div class="article__image">
-                                    <a href="{{route('upost.show',$list->id)}}">
-                                        <img src="{{asset('storage/static'.$list->file->path.'_500x400.'.$list->file->ext)}}"
-                                            alt="" class="img-fluid">
-                                    </a>
+                                   @if($list->file)
+                                        <a href="{{route('upost.show',$list->id)}}">
+                                            <img src="{{asset('storage/static'.$list->file->path.'_500x400.'.$list->file->ext)}}"
+                                                 alt="" class="img-fluid">
+                                        </a>
+                                    @endif
                                 </div>
                                 <div class="article__content">
                                     <ul class="list-inline">
@@ -159,10 +165,12 @@
                             <!-- Post Article -->
                             <div class="card__post ">
                                 <div class="card__post__body card__post__transition">
-                                    <a href="{{route('upost.show',$recents[$i]->id)}}">
-                                        <img src="{{asset('storage/static'.$recents[$i]->file->path.'_600x400.'.$recents[$i]->file->ext)}}"
-                                            class="img-fluid" alt="">
-                                    </a>
+                                  @if($recents[$i]->file)
+                                        <a href="{{route('upost.show',$recents[$i]->id)}}">
+                                            <img src="{{asset('storage/static'.$recents[$i]->file->path.'_600x400.'.$recents[$i]->file->ext)}}"
+                                                 class="img-fluid" alt="">
+                                        </a>
+                                    @endif
                                     <div class="card__post__content bg__post-cover" style="padding-bottom: 10px">
                                         <div class="card__post__category">
                                             {{$recents[$i]->category->name}}
@@ -203,10 +211,12 @@
                                 <!-- Post Article -->
                                 <div class="card__post card__post-list">
                                     <div class="image-sm">
-                                        <a href="{{route('upost.show',$recents[$i]->id)}}">
-                                            <img src="{{asset('storage/static'.$recents[$i]->file->path.'_500x400.'.$recents[$i]->file->ext)}}"
-                                                class="img-fluid" alt="">
-                                        </a>
+                                       @if($recents[$i]->file)
+                                            <a href="{{route('upost.show',$recents[$i]->id)}}">
+                                                <img src="{{asset('storage/static'.$recents[$i]->file->path.'_500x400.'.$recents[$i]->file->ext)}}"
+                                                     class="img-fluid" alt="">
+                                            </a>
+                                        @endif
                                     </div>
                                     <div class="card__post__body ">
                                         <div class="card__post__content">
@@ -307,10 +317,12 @@
                         <!-- Post Article -->
                         <div class="article__entry">
                             <div class="article__image">
-                                <a href="{{route('upost.show',$tex->id)}}">
-                                    <img src="{{asset('storage/static'.$tex->file->path.'_500x400.'.$tex->file->ext)}}"
-                                        alt="" class="img-fluid">
-                                </a>
+                               @if($tex->file)
+                                    <a href="{{route('upost.show',$tex->id)}}">
+                                        <img src="{{asset('storage/static'.$tex->file->path.'_500x400.'.$tex->file->ext)}}"
+                                             alt="" class="img-fluid">
+                                    </a>
+                                @endif
                             </div>
                             <div class="article__content">
                                 <ul class="list-inline">
@@ -356,10 +368,12 @@
                                 <!-- Post Article -->
                                 <div class="article__entry">
                                     <div class="article__image">
-                                        <a href="{{route('upost.show',$post->id)}}">
-                                            <img src="{{asset('storage/static'.$post->file->path.'_500x400.'.$post->file->ext)}}"
-                                                alt="" class="img-fluid">
-                                        </a>
+                                       @if($post->file)
+                                            <a href="{{route('upost.show',$post->id)}}">
+                                                <img src="{{asset('storage/static'.$post->file->path.'_500x400.'.$post->file->ext)}}"
+                                                     alt="" class="img-fluid">
+                                            </a>
+                                        @endif
                                     </div>
                                     <div class="article__content">
                                         <ul class="list-inline">
@@ -396,10 +410,12 @@
                                 <div class="row ">
                                     <div class="col-md-5">
                                         <div class="card__post__transition">
-                                            <a href="{{route('upost.show',$footer->id)}}">
-                                                <img src="{{asset('storage/static'.$footer->file->path.'_500x400.'.$footer->file->ext)}}"
-                                                    class="img-fluid w-100" alt="">
-                                            </a>
+                                          @if($footer->file)
+                                                <a href="{{route('upost.show',$footer->id)}}">
+                                                    <img src="{{asset('storage/static'.$footer->file->path.'_500x400.'.$footer->file->ext)}}"
+                                                         class="img-fluid w-100" alt="">
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-md-7  pl-0">

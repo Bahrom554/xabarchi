@@ -12,10 +12,12 @@
                             <!-- Post Article -->
                             <div class="article__entry">
                                 <div class="article__image">
-                                    <a href="{{route('upost.show',$post->id)}}">
-                                        <img src="{{asset('storage/static'.$post->file->path.'_800x600.'.$post->file->ext)}}"
-                                            alt="" class="img-fluid">
-                                    </a>
+                                   @if($post->file)
+                                        <a href="{{route('upost.show',$post->id)}}">
+                                            <img src="{{asset('storage/static'.$post->file->path.'_800x600.'.$post->file->ext)}}"
+                                                 alt="" class="img-fluid">
+                                        </a>
+                                    @endif
                                 </div>
                                 <div class="article__content">
                                     <div class="article__category">

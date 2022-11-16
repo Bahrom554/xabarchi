@@ -6,10 +6,12 @@
     <!-- Post Article -->
     <div class="card__post card__post-list">
         <div class="image-sm">
-            <a href="{{route('upost.show',$post->id)}}">
-                <img src="{{asset('storage/static'.$post->file->path.'_500x400.'.$post->file->ext)}}"
-                    class="img-fluid" alt="">
-            </a>
+           @if($post->file)
+                <a href="{{route('upost.show',$post->id)}}">
+                    <img src="{{asset('storage/static'.$post->file->path.'_500x400.'.$post->file->ext)}}"
+                         class="img-fluid" alt="">
+                </a>
+            @endif
         </div>
 
 
@@ -55,10 +57,12 @@
 @if($latest->count()>3)
     <div class="article__entry">
         <div class="article__image">
-            <a href="">
-                <img src="{{asset('storage/static'.$latest[3]->file->path.'_800x500.'.$latest[3]->file->ext)}}" alt=""
-                    class="img-fluid">
-            </a>
+            @if($latest[3]->file)
+                <a href="">
+                    <img src="{{asset('storage/static'.$latest[3]->file->path.'_800x500.'.$latest[3]->file->ext)}}" alt=""
+                         class="img-fluid">
+                </a>
+            @endif
         </div>
         <div class="article__content">
             <div class="article__category">

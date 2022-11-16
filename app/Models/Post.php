@@ -61,7 +61,7 @@ class Post extends Model
         return $query->orderBy('updated_at', 'desc');
     }
     public function scopeCommon($query){
-        return $query->where('status','1')->whereNotNull('file_id')->with('user', 'category', 'tags', 'comments', 'file')->orderBy('updated_at', 'desc');
+        return $query->where('status','1')->whereNotNull('file_id')->with('user', 'category', 'tags','file')->orderBy('updated_at', 'desc');
     }
 
     public function scopeSearch($query, $term)
