@@ -32,11 +32,13 @@ class PostService
     }
     public function edit(PostEditRequest $request, Post $post)
     {
-        if ($request->hasFile('files')) {
+        if ($request->hasFile('file')) {
             $request->validate([
                 'file' => 'mimes:JPG,jpeg, jpg, svg, png|required|max:10000'
             ]);
-            $this->service->delete($post->file_id);
+            if($post->file_id){
+                $this->service->delete($post->file_id);
+            }
             $file = $this->service->uploads($request,true);
             $request['file_id'] = $file->id;
             $messages = [

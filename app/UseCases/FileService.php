@@ -23,23 +23,23 @@ class FileService
     {
         $files = $request->file('file');
 
-        if (is_array($request->file('file'))) {
-
-            if (!in_array($files[0]->extension(), ['JPG', 'jpeg', 'jpg', 'svg', 'png'])) {
-                return response()->with('Unknown extension');
-            }
-
-            $response = [];
-            foreach ($files as $file) {
-                $dto = new GeneratePathFileDTO();
-                $dto->file = $file;
-                $dto->createThumbnails=$createthumb;
-                $dto->folder_id = $request->get('folder_id');
-                $response[] = $this->uploadFile($dto);
-            }
-
-            return $response;
-        } else {
+//        if (is_array($request->file('file'))) {
+//
+//            if (!in_array($files[0]->extension(), ['JPG', 'jpeg', 'jpg', 'svg', 'png'])) {
+//                return response()->with('Unknown extension');
+//            }
+//
+//            $response = [];
+//            foreach ($files as $file) {
+//                $dto = new GeneratePathFileDTO();
+//                $dto->file = $file;
+//                $dto->createThumbnails=$createthumb;
+//                $dto->folder_id = $request->get('folder_id');
+//                $response[] = $this->uploadFile($dto);
+//            }
+//
+//            return $response;
+//        } else {
             if (!in_array($files->extension(), ['JPG', 'jpeg', 'jpg', 'svg', 'png'])) {
                 return response()->json('Unknown extension')->setStatusCode(422);
             }
@@ -48,7 +48,7 @@ class FileService
             $dto->createThumbnails=$createthumb;
 
             return $this->uploadFile($dto);
-        }
+//        }
     }
     public function uploadFile(GeneratePathFileDTO $dto)
     {

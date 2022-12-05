@@ -14,7 +14,7 @@
                     <tr>
                         <th>No</th>
                         <th>Title</th>
-                        <th class=" d-none d-md-table-cell">Subtitle</th>
+                        <th class=" d-none d-md-table-cell">Category</th>
                         <th class=" d-none d-lg-table-cell">Published At</th>
                         <th class=" d-none d-md-table-cell">Status</th>
                         <th>Action</th>
@@ -25,7 +25,7 @@
                     <tr>
                         <td>{{$post->id}}</td>
                         <td class="text-truncate">{{$post->title}}</td>
-                        <td class="text-truncate d-none d-md-table-cell">{{$post->subtitle}}</td>
+                        <td class="text-truncate d-none d-md-table-cell">{{$post->category->name}}</td>
                         <td class="text-truncate d-none d-lg-table-cell">{{ Carbon\Carbon::parse( $post->updated_at)->toFormattedDateString()}}
                         </td>
                         <td class="text-truncate d-none d-md-table-cell">{{$post->status0}}</td>
@@ -52,7 +52,7 @@
                     <tr>
                         <th>No</th>
                         <th>Title</th>
-                        <th class=" d-none d-md-table-cell">Subtitle</th>
+                        <th class=" d-none d-md-table-cell">Category</th>
                         <th class=" d-none d-lg-table-cell">Published At</th>
                         <th class=" d-none d-md-table-cell">Status</th>
                         <th>Action</th>
@@ -71,15 +71,15 @@
 <script>
     $('#example').dataTable({
         "columnDefs": [{
-                "width": "5%",
+                "width": "2%",
                 "targets": 0
             },
             {
-                "width": "45%",
+                "width": "60%",
                 "targets": 1
             },
             {
-                "width": "30%",
+                "width": "15%",
                 "targets": 2
             },
             {

@@ -82,11 +82,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $tags = Tag::all();
-        $tag_ids=DB::table('post_tags')->select('tag_id')->where('post_id',$post->id)->get();
+//        $tags = Tag::all();
+//        $tag_ids=DB::table('post_tags')->select('tag_id')->where('post_id',$post->id)->get();
+        $tags=$post->tags()->get();
+
         $ids=[];
-        foreach ($tag_ids as $tag){
-         $ids[]=$tag->tag_id;
+        foreach ($tags as $tag){
+         $ids[]=$tag->id;
         }
 
         $categories = Category::where('parent_id', null)->with('subcategories')->get();

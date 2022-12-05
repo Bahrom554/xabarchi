@@ -41,11 +41,15 @@
                     <label class="form-label" style="font-size:22px;">Categories</label>
                     <select name="category_id" class="single-select" id="category">
                         @foreach($categories as $category)
-                        <optgroup label="{{$category->name}}">
-                            @foreach($category->subcategories as $subcategory)
-                            <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
-                            @endforeach
-                        </optgroup>
+                            @if($category->subcategories->count())
+                                <optgroup label="{{$category->name}}">
+                                    @foreach($category->subcategories as $subcategory)
+                                        <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                                    @endforeach
+                                </optgroup>
+                            @else
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -74,76 +78,12 @@
 
 @endsection
 @section('jscontent')
-<script>
-    class MyUploadAdapter {
-        constructor( loader ) {
-            this.loader = loader;
-        }
-        upload() {
-            return this.loader.file
-                .then( file => new Promise( ( resolve, reject ) => {
-                    this._initRequest();
-                    this._initListeners( resolve, reject, file );
-                    this._sendRequest( file );
-                } ) );
-        }
-        abort() {
-            if ( this.xhr ) {
-                this.xhr.abort();
-            }
-        }
-        _initRequest() {
-            const xhr = this.xhr = new XMLHttpRequest();
-            xhr.open( 'POST', '{{route('image.upload')}}', true );
-            xhr.setRequestHeader('x-csrf-token','{{csrf_token()}}');
-            xhr.responseType = 'json';
+    @include('admin.layouts.ckeditor')
+    <script>
+
+        function preview() {
+            frame.src = URL.createObjectURL(event.target.files[0]);
         }
 
-        _initListeners( resolve, reject, file ) {
-            const xhr = this.xhr;
-            const loader = this.loader;
-            const genericErrorText = `Couldn't upload file: ${ file.name }.`;
-            xhr.addEventListener( 'error', () => reject( genericErrorText ) );
-            xhr.addEventListener( 'abort', () => reject() );
-            xhr.addEventListener( 'load', () => {
-                const response = xhr.response;
-                if ( !response || response.error ) {
-                    return reject( response && response.error ? response.error.message : genericErrorText );
-                }
-                resolve( {
-                    default: response.url
-                } );
-            } );
-            if ( xhr.upload ) {
-                xhr.upload.addEventListener( 'progress', evt => {
-                    if ( evt.lengthComputable ) {
-                        loader.uploadTotal = evt.total;
-                        loader.uploaded = evt.loaded;
-                    }
-                } );
-            }
-        }
-        _sendRequest( file ) {
-            const data = new FormData();
-            data.append( 'file', file );
-            this.xhr.send( data );
-        }
-    }
-    function SimpleUploadAdapterPlugin( editor ) {
-        editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-            return new MyUploadAdapter( loader );
-        };
-    }
-    ClassicEditor
-        .create(document.querySelector('#editor'), {
-            extraPlugins: [ SimpleUploadAdapterPlugin],
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    function preview() {
-        frame.src = URL.createObjectURL(event.target.files[0]);
-    }
-
-</script>
+    </script>
 @endsection

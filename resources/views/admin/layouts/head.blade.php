@@ -19,8 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- loader-->
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
-
     <link href="{{asset('admin/css/pace.min.css')}}" rel="stylesheet" />
     <!--Theme Styles-->
 {{--    <link href="{{asset('admin/css/dark-theme.css')}}" rel="stylesheet" />--}}
