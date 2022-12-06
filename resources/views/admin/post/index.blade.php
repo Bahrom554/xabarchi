@@ -72,7 +72,7 @@
         </div>
     </div>
 </div>
-    <input type="search" id="searche"  onkeyup="searchDrivers()">
+{{--    <input type="search" id="searche"  onkeyup="searchDrivers()">--}}
 @endsection
 @section('jscontent')
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
