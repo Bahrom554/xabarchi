@@ -6,6 +6,7 @@ use App\Http\Requests\PostCreateRequest;
 use App\Http\Requests\PostEditRequest;
 use App\Models\Files;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostService
 {
@@ -25,7 +26,7 @@ class PostService
             $request['file_id'] = $file->id;
         }
         $post = Post::make($request->only('title', 'subtitle', 'slug', 'file_id', 'category_id', 'status', 'type', 'body'));
-        $post->author_id = 1;
+        $post->author_id = Auth::user()->id;
         $post->save();
         $post->tags()->sync($request->tags);
         return $post;
@@ -48,7 +49,7 @@ class PostService
                 'file_id' => 'required', $messages
             ]);
         }
-        $post->update($request->only('title', 'subtitle', 'slug', 'category_id', 'file_id', 'author_id', 'status', 'type', 'body'));
+        $post->update($request->only('title', 'subtitle', 'slug', 'category_id', 'file_id', 'status', 'type', 'body'));
         $post->tags()->sync($request->tags);
         return $post;
     }

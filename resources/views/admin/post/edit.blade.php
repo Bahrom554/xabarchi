@@ -44,12 +44,17 @@
                     <label class="form-label" style="font-size:22px;">Categories</label>
                     <select name="category_id" class="single-select" id="category">
                         @foreach($categories as $category)
+                            @if($category->$subcategories->count())
                         <optgroup label="{{$category->name}}">
                             @foreach($category->subcategories as $subcategory)
                             <option value="{{$subcategory->id}}" @if($subcategory->id==$post->category_id) selected
                                 @endif>{{$subcategory->name}}</option>
                             @endforeach
                         </optgroup>
+                            @else
+                                <option value="{{$category->id}}" @if($subcategory->id==$post->category_id) selected
+                                    @endif>{{$category->name}}</option>
+                            @endif
                         @endforeach
                     </select>
                     {{--                        <select class="single-select" name="category_id"  required>--}}
