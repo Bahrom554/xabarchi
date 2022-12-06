@@ -25,7 +25,7 @@
                     <tr>
                         <td>{{$post->id}}</td>
                         <td class="text-truncate">{{$post->title}}</td>
-                        <td class="text-truncate d-none d-md-table-cell">{{$post->category->name}}</td>
+                             <td class="text-truncate d-none d-md-table-cell">{{$post->category->name}}</td>
                         <td class="text-truncate d-none d-lg-table-cell">{{ Carbon\Carbon::parse( $post->updated_at)->toFormattedDateString()}}
                         </td>
                         <td class="text-truncate d-none d-md-table-cell">{{$post->status0}}</td>
@@ -41,8 +41,14 @@
                                     @method('delete')
                                     @csrf
                                     <input name="url" hidden value="{{$posts->currentPage()}}">
-                                    <a href="#" style="color: red;" onclick="event.preventDefault();
-                                        this.closest('form').submit();"><i class="bi bi-trash-fill"></i></a>
+                                    <a href="#" style="color: red;" onclick="
+                                     if(confirm('Are sure,You want delete this?')){
+                                            event.preventDefault();
+                                            this.closest('form').submit();
+                                           }
+                                            else{
+                                            event.preventDefault();}" >
+                                        <i class="bi bi-trash-fill"></i></a>
                                 </form>
                             </div>
                         </td>
@@ -66,9 +72,33 @@
         </div>
     </div>
 </div>
+    <input type="search" id="searche"  onkeyup="searchDrivers()">
 @endsection
 @section('jscontent')
-<script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        {{--function searchDrivers() {--}}
+        {{--    console.log('ok');--}}
+        {{--    let search = $('#searche').val()--}}
+        {{--    if(!search.trim()){--}}
+        {{--        return {{route('post.index')}};--}}
+        {{--    }--}}
+        {{--    if (search.length > 1 ) {--}}
+
+        {{--        axios.get('{{route('post.search')}}', {--}}
+        {{--            params: {--}}
+        {{--                search: search--}}
+        {{--            }--}}
+        {{--        }).then(function (response) {--}}
+        {{--            console.log(response);--}}
+        {{--        })--}}
+        {{--            .catch(function (error) {--}}
+        {{--                console.log(error);--}}
+        {{--            })--}}
+        {{--    }--}}
+
+        {{--}--}}
     $('#example').dataTable({
         "columnDefs": [{
                 "width": "2%",
@@ -98,6 +128,8 @@
         "paging": false,
         "info":false
     });
+
+
 
 
 </script>

@@ -1,5 +1,4 @@
 
-<script src="{{asset('admin/js/ckeditor.js')}}"></script>
 <script>
     class MyUploadAdapter {
         constructor( loader ) {

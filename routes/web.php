@@ -29,9 +29,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('message', 'MessageController@index')->name('message.index');
         Route::get('message/{message}', 'MessageController@show')->name('message.show');
         Route::delete('message/{message}', 'MessageController@destroy')->name('message.destroy');
-        Route::get('post/search','PostController@search')->name('post.search');
-        Route::get('category/search','CategoryController@search')->name('category.search');
-        Route::get('tag/search','TagController@search')->name('tag.search');
+        Route::get('posts/search','PostController@search')->name('post.search');
+        Route::get('categories/search','CategoryController@search')->name('category.search');
+        Route::get('tags/search','TagController@search')->name('tag.search');
         // Route::resource('user','UserController');
     });
 });

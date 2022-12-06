@@ -35,8 +35,13 @@
                                         @method('delete')
                                         @csrf
                                         <input name="url" hidden value="{{$categories->currentPage()}}">
-                                        <a href="#" style="color: red;" onclick="event.preventDefault();
-                                        this.closest('form').submit();"><i class="bi bi-trash-fill"></i></a>
+                                        <a href="#" style="color: red;" onclick="
+                                     if(confirm('Are sure,You want delete this?')){
+                                            event.preventDefault();
+                                            this.closest('form').submit();
+                                           }
+                                            else{
+                                            event.preventDefault();}"><i class="bi bi-trash-fill"></i></a>
                                     </form>
 
                                 </div>

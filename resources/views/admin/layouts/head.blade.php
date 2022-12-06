@@ -26,6 +26,9 @@
     <link href="{{asset('admin/css/semi-dark.css')}}" rel="stylesheet" />
     <link href="{{asset('admin/css/header-colors.css')}}" rel="stylesheet" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-{{--    ckeditor--}}
+    <script src="{{asset('admin/js/ckeditor.js')}}"></script>
+
+    {{--    ckeditor--}}
     <title>Xabarchi</title>
+
 </head>

@@ -136,14 +136,9 @@ class PostController extends Controller
                          ->orWhere('id',$value)
                            ->get();
             return response()->json([
-                'view' => view('admin.post.table', compact('posts'))->render()
+                'posts' => $posts
             ]);
 
-        } else {
-            $posts = Post::where('id', '<', -1)->get();
-            return response()->json([
-                'view' => view('admin.post.table', compact('posts'))->render()
-            ]);
         }
     }
 }
